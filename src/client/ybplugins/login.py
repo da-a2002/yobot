@@ -65,11 +65,11 @@ class Login:
         return 0
 
     def execute(self, match_num: int, ctx: dict) -> dict:
-        if ctx['message_type'] != 'private':
-            return {
-                'reply': '请私聊使用',
-                'block': True
-            }
+        #if ctx['message_type'] != 'private':
+            #return {
+                #'reply': '请私聊使用',
+                #'block': True
+            #}
         reply = ''
         if match_num == 1:
             reply = self._get_login_code_url(ctx)
