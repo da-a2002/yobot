@@ -80,7 +80,7 @@ class Login:
         else:
             assert False, f"没有实现匹配码{match_num}对应的操作"
         uid = ctx['user_id']
-        mail = f('{uid}@qq.com')
+        mail = f'{uid}@qq.com'
         headers = {'Content-Type': 'application/json'}#消息头，根据实际需要添加
         url = '127.0.0.1:5088' #地址
         data = {"mail":mail,"title":"xcw网页登陆","text":reply} #入参
