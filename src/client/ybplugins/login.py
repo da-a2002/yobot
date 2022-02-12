@@ -79,11 +79,19 @@ class Login:
             reply = f'您的临时密码是：{self._reset_pwd(ctx)}'
         else:
             assert False, f"没有实现匹配码{match_num}对应的操作"
+        uid = ctx['user_id']
+        mail = f('{uid}@qq.com')
+        headers = {'Content-Type': 'application/json'}#消息头，根据实际需要添加
+        url = '127.0.0.1:5088' #地址
+        data = {"mail":mail,"title":"xcw网页登陆","text":reply} #入参
+        dataJson = json.dumps(data ) #将 dict转成str
+        res = requests.post(url , data=data , headers=headers) #接口调用
 
-        return {
-            'reply': reply,
-            'block': True
-        }
+        resTest = json.loads(res .text) #将返回结果str转成dict
+        #return {
+            #'reply': reply,
+            #'block': True
+        #}
 
     def _get_or_create_user_model(self, ctx: dict) -> User:
         first_admin_login = False
