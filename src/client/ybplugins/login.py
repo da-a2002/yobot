@@ -83,7 +83,7 @@ class Login:
         uid = ctx['user_id']
         mail = f'{uid}@qq.com'
         headers = {'Content-Type': 'application/json'}#消息头，根据实际需要添加
-        url = '127.0.0.1:5088' #地址
+        url = 'http://127.0.0.1:5088/' #地址
         data = {"mail":mail,"title":"xcw网页登陆","text":reply} #入参
         dataJson = json.dumps(data ) #将 dict转成str
         res = requests.post(url , data=data , headers=headers) #接口调用
