@@ -1,6 +1,7 @@
 import json
 import os
 import time
+import requests
 from hashlib import sha256
 from typing import Dict, Union
 from urllib.parse import urljoin
